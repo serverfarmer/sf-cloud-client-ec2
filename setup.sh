@@ -10,6 +10,7 @@ else
 	pip install --upgrade awscli
 fi
 
+/opt/farm/scripts/setup/extension.sh sf-php
 /opt/farm/scripts/setup/extension.sh sf-versioning
 
 echo "setting up base directories"
