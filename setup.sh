@@ -1,4 +1,6 @@
 #!/bin/sh
+. /opt/farm/scripts/init
+
 # http://docs.aws.amazon.com/cli/latest/userguide/installing.html
 
 if grep -qFx $OSVER /opt/farm/ext/cloud-client-ec2/config/awscli-system-repo.conf; then
