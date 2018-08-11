@@ -9,6 +9,11 @@ fi
 region=$1
 distro=$2
 
-images=/var/cache/cloud-config-history/ubuntu-ec2-images.json
+path=/var/cache/cloud-config-history
+table=ubuntu-ec2-images.json
 
-cat $images |grep hvm:ebs-ssd |grep amd64 |grep $region |grep "$distro" |egrep -o 'ami-[0-9a-f]{8,17}' |head -n1
+if [ ! -s $path/$table ] || [ `stat -c %Y $path/$table` -le `date -d '-4 hours' +%s` ]; then
+	/opt/farm/ext/cloud-client-ec2/internal/download-ami-table.sh |/opt/farm/ext/versioning/save.sh daily $path $table
+fi
+
+cat $path/$table |grep hvm:ebs-ssd |grep amd64 |grep $region |grep "$distro" |egrep -o 'ami-[0-9a-f]{8,17}' |head -n1
