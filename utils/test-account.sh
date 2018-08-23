@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Valid account -> no messages (unless --json).
+# Valid account -> no messages (unless --arn).
 # So this script can be used straight from cron.
 
 if [ "$1" = "" ]; then

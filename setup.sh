@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 /opt/farm/ext/cloud-client-ec2/setup-awscli.sh
 
