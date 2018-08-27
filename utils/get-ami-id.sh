@@ -12,7 +12,7 @@ distro=$2
 path=/var/cache/cloud-config-history
 table=ubuntu-ec2-images.json
 
-if [ ! -s $path/$table ] || [ `stat -c %Y $path/$table` -le `date -d '-4 hours' +%s` ]; then
+if [ ! -s $path/$table ] || [ `stat -c %Y $path/$table` -le `date -d yesterday +%s` ]; then
 	/opt/farm/ext/cloud-client-ec2/internal/download-ami-table.sh |/opt/farm/ext/versioning/save.sh daily $path $table
 fi
 
