@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "skipping setup (deprecated extension)"
+exit 0
+
 /opt/farm/ext/cloud-client-ec2/setup-awscli.sh
 
 /opt/farm/scripts/setup/extension.sh sf-php
